@@ -1,4 +1,4 @@
-name: Deploy Next.js site to Pages
+name: Next.js Build and Deploy
 
 on:
   push:
@@ -46,7 +46,7 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
-          generator_config_file: next.config.mjs
+          generator_config_file: next.config.ts
       - name: Restore cache
         uses: actions/cache@v4
         with:
