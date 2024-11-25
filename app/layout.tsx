@@ -13,13 +13,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <link rel="manifest" href="/nextjs/manifest.json" /> {/* basePathを考慮したパス */}
-        {/* アイコンのリンクは削除 */}
+        <link rel="manifest" href="/public/manifest.json" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/nextjs/sw.js');
+                navigator.serviceWorker.register('/public/sw.js');
               }
             `,
           }}
