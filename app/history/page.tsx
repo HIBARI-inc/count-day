@@ -8,6 +8,12 @@ interface HistoryData {
     count: number;
 }
 
+interface Counter {
+    id: string;
+    name: string;
+    count: number;
+}
+
 export default function HistoryPage() {
     const [data, setData] = useState<HistoryData[]>([]);
 
@@ -15,8 +21,8 @@ export default function HistoryPage() {
         // ローカルストレージから履歴データを取得する
         const savedCounters = localStorage.getItem('counters');
         if (savedCounters) {
-            const counters = JSON.parse(savedCounters);
-            const historyData: HistoryData[] = counters.map((counter: any) => ({
+            const counters: Counter[] = JSON.parse(savedCounters);
+            const historyData: HistoryData[] = counters.map((counter: Counter) => ({
                 date: new Date().toISOString().split('T')[0], // 仮の日付
                 count: counter.count,
             }));
